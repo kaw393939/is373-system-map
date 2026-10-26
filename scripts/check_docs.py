@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Small, offline publication checks; not a server or documentation grader."""
 
+import os
 import re
 import subprocess
 import sys
@@ -13,7 +14,7 @@ REFERENCE = re.compile(r'^\s{0,3}\[[^\]\n]+\]:\s*(<[^>\n]*>|\S+)')
 FENCE = re.compile(r'^\s{0,3}(`{3,}|~{3,})')
 PRIVATE_KEY = re.compile(r'-----BEGIN (?:[A-Z0-9]+ )*PRIVATE KEY-----')
 CREDENTIAL_URL = re.compile(r'\b[a-z][a-z0-9+.-]*://([^\s<>/"\']+):([^\s<>/@"\']+)@', re.I)
-LIMIT = "Checks cover local document links and selected secret patterns only; not factual, server, or recreation proof."
+LIMIT = "Checks cover local document links and selected secret patterns only; not anchors, external availability, factual, server, or recreation proof."
 
 
 def published_files(root):
@@ -33,6 +34,15 @@ def contained(path, root):
         return True
     except (ValueError, OSError, RuntimeError):
         return False
+
+
+def included(path, root, files):
+    """Git publishes files, not ignored captures or empty directories."""
+    relative = Path(os.path.abspath(path)).relative_to(root).as_posix()
+    if path.is_dir():
+        prefix = "" if relative == "." else relative + "/"
+        return any(name.startswith(prefix) and (root / name).is_file() for name in files)
+    return relative in files
 
 
 def credential_filename(path):
@@ -75,7 +85,8 @@ def local_targets(lines):
 def check(root):
     root = Path(root).resolve()
     errors = []
-    for relative in published_files(root):
+    files = set(published_files(root))
+    for relative in sorted(files):
         path = root / relative
         if not contained(path, root):
             errors.append((relative, 1, "file or symlink points outside this clone"))
@@ -83,6 +94,8 @@ def check(root):
         if credential_filename(path):
             errors.append((relative, 1, "credential filename must not be published"))
             continue
+        if path.is_symlink():
+            continue  # Git stores its target name; do not open an ignored target.
         if not path.is_file():
             continue  # Staged deletions and submodules are not document contents.
         try:
@@ -116,6 +129,8 @@ def check(root):
                     errors.append((relative, number, "local link leaves this clone"))
                 elif not destination.exists():
                     errors.append((relative, number, "local link target does not exist"))
+                elif not included(destination, root, files):
+                    errors.append((relative, number, "local link target is not included in publication"))
             except (ValueError, OSError, RuntimeError):
                 errors.append((relative, number, "local link has an unsafe or invalid path"))
     return errors
