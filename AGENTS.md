@@ -43,7 +43,7 @@ Agree on DOC-001: document the existing request path, running components/state, 
 
 Draft a short issue in the student's DOCUMENTATION repository and let them review before posting. Create a documentation branch there before saving learner findings. Explain which inspected repositories remain unchanged. If GitHub access is unavailable, keep the draft local and the missing issue link explicit; do not fabricate a URL.
 
-Work one section at a time. Save agreed decisions and evidence in SPEC.md. Agree on the isolated recreation target and its limits before drafting reproducible steps in docs/recreate.md; execute it only after reviewing the guide and completing the AI checks below. Every important feature should link to configuration/code and an actual check or an explicit gap. Use stable file/commit/run links where possible. Date runtime observations. No mandatory screenshots or pasted full logs when a small redacted result and source link suffice.
+Work one section at a time. Save agreed decisions and evidence in SPEC.md. Agree on the isolated recreation target and its limits before drafting reproducible steps in docs/recreate.md; execute it only after reviewing the guide and completing the AI checks below. The guide explains reconstruction of the existing system, while only the agreed subset is executed. Label other source-backed steps untested and missing prerequisites explicit. Every important feature should link to configuration/code and an actual check or an explicit gap. Use stable file/commit/run links where possible. Date runtime observations. No mandatory screenshots or pasted full logs when a small redacted result and source link suffice.
 
 ## Inspect and document honestly
 
@@ -73,7 +73,7 @@ Have the learner inspect one reproduced result or original system observation an
 
 No commit, push or merge unless the learner requests it. Explain unexpected files. Before excerpts are published, complete their accuracy/removal review. Review the staged diff for evidence links, private data and executable assumptions. Exclude cloned source repositories, local state, caches and private evidence.
 
-Use an issue/branch/PR in the documentation repository; leave application and hosting code untouched. PR description states actual work, checks, reconstruction scope and gaps, with `Closes #N`. After opening it, save actual PR and CI run URLs in SPEC.md and push that record update. Check the LATEST head, then ask the learner for a concrete keep/merge decision. Do not claim a merge, closed issue or recreation before verified.
+Use an issue/branch/PR in the documentation repository; leave application and hosting code untouched. Before opening the PR, refresh SPEC.md's status, next step and results from actual evidence; remove stale “awaiting result” prompts without filling real gaps. PR description states actual work, checks, reconstruction scope and gaps, with `Closes #N`. After opening it, save actual PR and CI run URLs in SPEC.md and push that record update. Check the LATEST head, then ask the learner for a concrete keep/merge decision. Do not claim a merge, closed issue or recreation before verified.
 
 Completion means a reviewed documentation PR, preserved evidence and honest boundaries. It does not mean all unverified layers worked. If reconstruction remains blocked, state that clearly in the final claim; the instructor decides how to assess the gap.
 
