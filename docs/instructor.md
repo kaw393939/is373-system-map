@@ -16,4 +16,6 @@ Recreation evidence should name what actually ran, where, against which source, 
 
 Preserve a concise instructor report with actual findings, revisions and evidence links. Keep trial solutions in separate repositories and retire disposable trials recoverably after recording the results; do not point new learners at a solved trial. Archive rather than erase useful evidence. Preserve private material locally outside Git and omit it from published reports.
 
+See the [26 October 2026 walkthrough](trial-2026-10-26.md) for a fresh-clone simulation, actual reconstruction evidence and its limits.
+
 The [basic assessment](assessment.md) looks at system explanation, recreation usefulness and evidence-based improvement. The short learning record supports a human conversation; it does not grade students automatically.

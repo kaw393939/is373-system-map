@@ -87,6 +87,36 @@ class PublicationChecks(unittest.TestCase):
         self.git("add", "--force", ".env")
         self.assertEqual(["credential filename must not be published"], self.messages())
 
+    def test_existing_ignored_targets_and_empty_directories_do_not_publish(self):
+        self.write(".gitignore", ".private/\n.env\n")
+        self.write(".private/server.txt", "Private capture")
+        self.write(".env", "PASSWORD=not-a-real-secret\n")
+        (self.root / "empty").mkdir()
+        self.write("README.md", "[Capture](.private/server.txt)\n[Environment](.env)\n[Empty](empty/)\n")
+        self.assertEqual(["local link target is not included in publication"] * 3, self.messages())
+        self.write("docs/new guide.md", "# New, untracked but publishable\n")
+        self.write("README.md", "[New guide](docs/new%20guide.md)\n[Documents](docs/)\n[This repo](./)\n")
+        self.assertEqual([], self.messages())
+
+    def test_symlink_links_need_published_targets_including_directory_contents(self):
+        self.write(".gitignore", ".private/\n")
+        self.write(".private/capture.txt", "Private capture")
+        capture = self.root / "capture.txt"
+        capture.symlink_to(".private/capture.txt")
+        directory = self.root / "only-links"
+        directory.mkdir()
+        child = directory / "capture.txt"
+        child.symlink_to("../.private/capture.txt")
+        self.git("add", "capture.txt", "only-links/capture.txt")
+        self.write("README.md", "[Capture](capture.txt)\n[Directory](only-links/)\n")
+        self.assertEqual(["local link target is not included in publication"] * 2, self.messages())
+        self.write("public.txt", "Published document")
+        capture.unlink()
+        capture.symlink_to("public.txt")
+        child.unlink()
+        child.symlink_to("../public.txt")
+        self.assertEqual([], self.messages())
+
 
 if __name__ == "__main__":
     unittest.main()
