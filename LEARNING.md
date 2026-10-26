@@ -11,8 +11,8 @@ AI-drafted task evidence, not a transcript or grade. This may be public. Review,
 
 | Checkpoint | Actual words or labeled paraphrase | Help supplied | Evidence or gap |
 | --- | --- | --- | --- |
-| Initial request-path prediction | Not yet evidenced | Pending | Pending |
-| Interpretation of one actual system check | Not yet evidenced | Pending | Pending |
+| Server explanation: initial prediction → explanation after inspection | Not yet evidenced | Pending | Pending |
+| Code-to-running-release explanation and actual check interpretation | Not yet evidenced | Pending | Pending |
 | Own observation and recreation discrepancy/limit | Not yet evidenced | Pending | Pending |
 | Keep/revise decision and reason | Not yet evidenced | Pending | Pending |
 
