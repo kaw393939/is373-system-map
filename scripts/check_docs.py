@@ -38,11 +38,20 @@ def contained(path, root):
 
 def included(path, root, files):
     """Git publishes files, not ignored captures or empty directories."""
+    def published_file(candidate):
+        try:
+            name = Path(os.path.abspath(candidate)).relative_to(root).as_posix()
+            resolved = candidate.resolve().relative_to(root).as_posix()
+        except (ValueError, OSError, RuntimeError):
+            return False
+        return name in files and resolved in files
+
     relative = Path(os.path.abspath(path)).relative_to(root).as_posix()
     if path.is_dir():
         prefix = "" if relative == "." else relative + "/"
-        return any(name.startswith(prefix) and (root / name).is_file() for name in files)
-    return relative in files
+        return any(name.startswith(prefix) and (root / name).is_file()
+                   and published_file(root / name) for name in files)
+    return published_file(path)
 
 
 def credential_filename(path):
