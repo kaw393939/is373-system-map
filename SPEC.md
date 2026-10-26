@@ -20,6 +20,8 @@ Pending: request path, running components and state, delivery path, and one boun
 
 **Evidence-based path and small diagram:** Not mapped yet. Explain name resolution separately from the subsequent HTTP/HTTPS request. Label unverified hops.
 
+**Student's explanation after inspection:** Not yet evidenced. Short own-word account of the request and a server component's purpose; label assistance.
+
 ## Components and features
 
 Add only actual components/features. Link each to its source/configuration and an observed check or explicit verification gap.
@@ -49,6 +51,8 @@ Add a small diagram and replace the prompts with your actual process. Distinguis
 | Verify running version | Pending | Pending | Pending |
 
 Green tests or a published image alone do not establish deployment. Identify how the running system's version can be compared with the intended release.
+
+**Student's delivery explanation and actual-check interpretation:** Not yet evidenced. Short own-word account of how a change reaches this system, any absent/unverified handoff and what the check establishes; label assistance.
 
 ## Recreation and review
 

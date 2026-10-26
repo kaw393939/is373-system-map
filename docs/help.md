@@ -8,6 +8,12 @@ Your **System Map clone** stores the documents and their issue/PR. Your **applic
 
 Give the application repository URL first. The coach will ask for the live URL and relevant hosting location when needed. If access is unavailable, record the exact gap and the next useful check rather than uploading a complete server dump.
 
+## Connecting to your server
+
+When the coach reaches host inspection, give it the usual SSH command or host alias you already use for class. Have it confirm the target and explain the small read-only check before running it. If it cannot connect, use your terminal to establish normal SSH access and share the specific error or selected nonsecret result. Never paste a password or private key; don't disable host-key checking or change server permissions to get past an error. The coach can help troubleshoot, then resume the investigation.
+
+SSH can work while Docker access is denied. If a read-only check needs your normal sudo access, have the coach explain one command for you to run in your own terminal. Keep authentication private and share only the requested nonsecret fields. If that access is unavailable, record the gap.
+
 ## Evidence has a boundary
 
 | Evidence | What it can establish | What it does not establish alone |
