@@ -14,6 +14,8 @@ Use a separate template copy and fresh SSH clone. Keep completed work out of thi
 
 Recreation evidence should name what actually ran, where, against which source, and what was not exercised. Never label a fixture as the student's live server. Missing credentials/access remain gaps; a walkthrough of public course repositories cannot establish a student's host state.
 
+The [HOST-001 dashboard change](https://github.com/kaw393939/373_hosting/blob/main/book/changes/2026-10-26-dashboard.md), tracked in [hosting issue #3](https://github.com/kaw393939/373_hosting/issues/3), is a separately authorized operational change outside read-only DOC-001, with no added student requirement. It illustrates comparing source/configuration with dated runtime evidence: public dashboard/API denial, private access, and ordinary-site regression checks. Treat AI/operator terminal and browser observations as operator evidence, not learner responses; retain any unverified result as a gap.
+
 Preserve a concise instructor report with actual findings, revisions and evidence links. Keep trial solutions in separate repositories and retire disposable trials recoverably after recording the results; do not point new learners at a solved trial. Archive rather than erase useful evidence. Preserve private material locally outside Git and omit it from published reports.
 
 See the [26 October 2026 walkthrough](trial-2026-10-26.md) for a fresh-clone simulation, actual reconstruction evidence and its limits.
