@@ -18,6 +18,8 @@ The [HOST-001 dashboard change](https://github.com/kaw393939/373_hosting/blob/ma
 
 The [HOST-002 maintenance record](https://github.com/kaw393939/373_hosting/blob/main/book/changes/2026-10-26-maintenance.md), tracked in [hosting issue #5](https://github.com/kaw393939/373_hosting/issues/5), continues with off-host backup verification, isolated restores, updates and a reboot. It shows why an intact archive, restored data, a running kernel and a healthy public release are different checks. Use its recorded limits and interruptions when discussing the evidence; it adds no student requirement and does not authorize live changes in DOC-001.
 
+Optional companion: the [HOST-003 application dependency record](https://github.com/kaw393939/373_hosting/blob/main/book/changes/2026-10-26-certifi.md) shows why host updates do not patch an existing application image. Compare dependency scans, isolated TLS checks and evidence of the running release; follow its canonical links for actual outcomes. This instructor example adds no required student task or live-change authorization.
+
 Preserve a concise instructor report with actual findings, revisions and evidence links. Keep trial solutions in separate repositories and retire disposable trials recoverably after recording the results; do not point new learners at a solved trial. Archive rather than erase useful evidence. Preserve private material locally outside Git and omit it from published reports.
 
 See the [26 October 2026 walkthrough](trial-2026-10-26.md) for a fresh-clone simulation, actual reconstruction evidence and its limits.
