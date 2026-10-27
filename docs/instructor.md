@@ -16,6 +16,8 @@ Recreation evidence should name what actually ran, where, against which source, 
 
 The [HOST-001 dashboard change](https://github.com/kaw393939/373_hosting/blob/main/book/changes/2026-10-26-dashboard.md), tracked in [hosting issue #3](https://github.com/kaw393939/373_hosting/issues/3), is a separately authorized operational change outside read-only DOC-001, with no added student requirement. It illustrates comparing source/configuration with dated runtime evidence: public dashboard/API denial, private access, and ordinary-site regression checks. Treat AI/operator terminal and browser observations as operator evidence, not learner responses; retain any unverified result as a gap.
 
+The [HOST-002 maintenance record](https://github.com/kaw393939/373_hosting/blob/main/book/changes/2026-10-26-maintenance.md), tracked in [hosting issue #5](https://github.com/kaw393939/373_hosting/issues/5), continues with off-host backup verification, isolated restores, updates and a reboot. It shows why an intact archive, restored data, a running kernel and a healthy public release are different checks. Use its recorded limits and interruptions when discussing the evidence; it adds no student requirement and does not authorize live changes in DOC-001.
+
 Preserve a concise instructor report with actual findings, revisions and evidence links. Keep trial solutions in separate repositories and retire disposable trials recoverably after recording the results; do not point new learners at a solved trial. Archive rather than erase useful evidence. Preserve private material locally outside Git and omit it from published reports.
 
 See the [26 October 2026 walkthrough](trial-2026-10-26.md) for a fresh-clone simulation, actual reconstruction evidence and its limits.
